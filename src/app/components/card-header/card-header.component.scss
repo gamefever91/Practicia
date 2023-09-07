@@ -1,0 +1,110 @@
+$orange-color:#F9640B;
+$white-color:#ffffff;
+$black:#000000;
+$light-pink: #FFE5D9;
+$blue-color: #1C83C6;
+.mainuser{
+    background: $white-color;
+    box-shadow: 0px 10px 50px #00000029;
+    border: 1px solid $orange-color;
+    border-radius: 10px;
+    padding: 15px;
+    position: relative;
+    min-height: 130px;
+    padding-left: 135px;
+    i{
+        border: 1px solid #E3E3E3;
+        border-radius: 6px;
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        left: 15px;
+        top: 15px;
+        img{
+            position: absolute;
+            max-width: 80%;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+    strong{
+        font-size: 16px;
+        color: $black;
+        display: block;
+        padding-bottom: 10px;
+    }
+    span{
+        font-size: 15px;
+        color: $blue-color;
+        display: block;
+        line-height: 20px;
+        padding-bottom: 10px;
+        .mat-icon{
+            font-size: 20px;
+            line-height: 20px;
+            display: inline-block;
+            vertical-align: top;
+        }
+    }
+    button{
+        width: 100%;
+        height: 32px;
+        background: $orange-color;
+        color: $white-color;
+        border: 0;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+}
+
+@media(max-width: 767px){
+    .mainuser{
+        span{
+            font-size: 13px;
+        }
+    }
+}
+
+@media(max-width: 480px){
+    .mainuser{
+        padding-left: 115px;
+        i{
+            width: 80px;
+            height: 80px;
+            left: 10px;
+            top: 10px;
+        }
+        strong{
+            font-size: 14px;
+        }
+        span{
+            font-size: 11px;
+
+            .mat-icon{
+                font-size: 13px;    
+
+            }
+        }
+        
+    }
+}
+
+@media(max-width: 280px){
+    .mainuser{
+        padding-left: 115px;
+        i{
+            width: 80px;
+            height: 80px;
+            left: 10px;
+            top: 10px;
+        }
+        strong{
+            font-size: 14px;
+        }
+        span{
+            font-size: 8.5px;
+        }
+    }
+}
+

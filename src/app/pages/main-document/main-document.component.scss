@@ -1,0 +1,105 @@
+$orange-color:#F9640B;
+$white-color:#ffffff;
+$black:#000000;
+$light-pink: #FFE5D9;
+$blue-color: #1C83C6;
+.maindocOuter{
+    padding-bottom: 80px;
+}
+.mainuser{
+    background: $white-color;
+    box-shadow: 0px 10px 50px #00000029;
+    border: 1px solid $orange-color;
+    border-radius: 10px;
+    padding: 15px;
+    position: relative;
+    min-height: 130px;
+    padding-left: 135px;
+    i{
+        border: 1px solid #E3E3E3;
+        border-radius: 6px;
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        left: 15px;
+        top: 15px;
+        img{
+            position: absolute;
+            max-width: 80%;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+    strong{
+        font-size: 16px;
+        color: $black;
+        display: block;
+        padding-bottom: 10px;
+    }
+    span{
+        font-size: 15px;
+        color: $blue-color;
+        display: block;
+        line-height: 20px;
+        padding-bottom: 10px;
+        .mat-icon{
+            font-size: 20px;
+            line-height: 20px;
+            display: inline-block;
+            vertical-align: top;
+        }
+    }
+    button{
+        width: 100%;
+        height: 32px;
+        background: $orange-color;
+        color: $white-color;
+        border: 0;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+}
+.docuserBx{
+    padding-top: 16px;
+    .docuserHd{
+        background: $light-pink;
+        border: 1px solid $orange-color;
+        border-radius: 10px 10px 0px 0px;
+        padding: 5px 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .doc_userLeft{
+            span{
+                display: block;
+                font-size: 15px;
+                line-height: 22px;
+                color: $black;
+            } 
+        }
+        .doc_userIcon{
+            .mat-icon{
+                font-size: 20px;
+                color: $black;
+                margin-left: 5px;
+                height: 20px;
+            }
+
+        }
+    }
+    .docsliderBx{
+        border: $orange-color solid 1px;
+        border-radius: 0 0 10px 10px;
+        padding: 10px;
+        border-top:0;
+        img{
+            width: 100%;
+        }
+    }
+}
+.pageNo{
+    font-size: 13px;
+    padding: 10px 0;
+    text-align: center;
+}

@@ -1,0 +1,42 @@
+<!---->
+<section class="maindocOuter">
+  <div class="container">
+    <app-card-header></app-card-header>
+
+    <div class="docuserBx">
+      <div class="docuserHd">
+        <div class="doc_userLeft">
+          <span><strong>Owner:</strong> {{ document?.meta_owner_name}}</span>
+          <span><strong>ID:</strong> {{ document?.meta_owner_reference}}</span>
+        </div>
+        <div class="doc_userIcon">
+          <mat-icon class="active" style="cursor: pointer" (click)="download()"
+          >cloud_download</mat-icon
+        >
+        <mat-icon style="cursor: pointer" (click)="print()"
+          >local_printshop</mat-icon
+        >
+        <mat-icon style="cursor: pointer" (click)="openBottomSheet()"
+        >share</mat-icon>        </div>
+      </div>
+      <div class="cardImgBx">
+        <ul
+          class="docList"
+          *ngFor="let document of document?.common_files_list"
+        >
+          <li>
+            <a
+              [routerLink]="['/main-document']"
+              [queryParams]="{ file: document?.common_files_name }"
+            >
+              {{ document?.common_files_name }}
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<!---->
+<app-footer></app-footer>
+

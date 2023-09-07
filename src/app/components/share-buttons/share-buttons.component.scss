@@ -1,0 +1,22 @@
+::ng-deep .mat-bottom-sheet-container {
+    position: fixed;
+    border-top-left-radius: 50px !important;
+    border-top-right-radius: 50px !important;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 8px 16px;
+    min-width: 100vw;
+    box-sizing: border-box;
+    display: block;
+    outline: 0;
+    max-height: 80vh;
+    overflow: auto;
+    background: #ffffff !important;
+    color: var(--mat-bottom-sheet-container-text-color);
+    font-family: var(--mat-bottom-sheet-container-text-font);
+    font-size: var(--mat-bottom-sheet-container-text-size);
+    line-height: var(--mat-bottom-sheet-container-text-line-height);
+    font-weight: var(--mat-bottom-sheet-container-text-weight);
+    letter-spacing: var(--mat-bottom-sheet-container-text-tracking);
+}

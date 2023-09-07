@@ -1,0 +1,74 @@
+$orange-color:#F9640B;
+$white-color:#ffffff;
+$black:#000000;
+$light-pink: #FFE5D9;
+
+.docInfoBx{
+    background: $white-color;
+    box-shadow: 0px 10px 50px #00000029;
+    border: 1px solid $orange-color;
+    border-radius: 10px;
+    margin-bottom: 40px;
+    .docHd{
+        background: $light-pink;
+        border-bottom: 1px solid $orange-color;
+        border-radius: 10px 10px 0px 0px;
+        line-height: 30px;
+        padding: 10px 20px;
+        font-size: 17px;
+        font-weight: 700;
+        color: $black;
+    }
+    .docinfoBx{
+        padding: 20px;
+        span{
+            display: block;
+            line-height: 18px;
+            padding-bottom: 15px;
+            font-size: 15px;
+            color: $black;
+        }
+    }
+}
+.pincodeHd{
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    color: $black;
+    padding-bottom: 15px;
+}
+.frmBx{
+    padding-bottom: 20px;
+    .frmInp{
+        background: #FFFFFF;
+        border: 1px solid #B4B4B4;
+        border-radius: 10px;
+        height: 56px;
+        width: 100%;
+        padding: 0 10px;
+        font-size: 16px;
+        outline: 0;
+        background: $white-color;
+    }
+}
+.submitBtn{
+    text-align: center;
+    .submitButton{
+        width: 100%;
+        height: 56px;
+        border: 0;
+        background: $orange-color;
+        color: $white-color;
+        font-size: 16px;
+        border-radius: 10px;
+        font-weight: 600;
+    }
+    a{
+        display: inline-block;
+        margin-top: 20px;
+        font-size: 15px;
+        color: $black;
+        font-weight: 500;
+        text-decoration: none;
+    }    
+}

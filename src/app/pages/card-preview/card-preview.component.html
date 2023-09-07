@@ -1,0 +1,29 @@
+<!---->
+<section class="maindocOuter">
+  <div class="container">
+    <app-card-header></app-card-header>
+    <div class="docuserBx">
+      <div class="docuserHd">
+        <div class="doc_userLeft">
+          <strong>Card Preview</strong>
+        </div>
+        <div class="doc_userIcon">
+          <mat-icon class="active" style="cursor: pointer" (click)="download()"
+            >cloud_download</mat-icon
+          >
+          <mat-icon style="cursor: pointer" (click)="print()"
+            >local_printshop</mat-icon
+          >
+          <mat-icon style="cursor: pointer" (click)="openBottomSheet()"
+            >share</mat-icon
+          >
+        </div>
+      </div>
+      <div class="cardImgBx">
+        <i><img src="../../../assets/images/doc-img1.png" alt="" /></i>
+      </div>
+    </div>
+  </div>
+</section>
+<!---->
+<app-footer></app-footer>

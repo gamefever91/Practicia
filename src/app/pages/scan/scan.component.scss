@@ -1,0 +1,60 @@
+@import "../../../scss/mixin.scss";
+$base-color: #4E4E4E;
+$heading-color:#091E42;
+$orange-color:#F9640B;
+$white-color:#ffffff;
+
+.scanHd{
+    text-align: center;
+    h3{
+        font-size: 20px;
+        color: $heading-color;
+        padding-bottom: 10px;
+    }
+    span{
+        font-size: 15px;
+        color: $base-color;
+        font-weight: 500;
+    }
+}
+.qrcode {
+    text-align: center;
+    padding: 230px 0;
+}
+.scanBtn{
+    text-align: center;
+    button{
+        background: $orange-color;
+        color:$white-color;
+        width: 140px;
+        height: 32px;
+        border-radius: 6px;
+        font-size: 12px;
+        text-transform: uppercase;
+        border: 0;
+    }
+}
+.scaning{
+    padding: 0 20px;
+    text-align: center;
+    display: none;
+    small{
+        font-size: 15px;
+        color:$base-color;
+        padding-bottom: 20px;
+        display: block;
+    }
+    > span{
+        height: 4px;
+        background: #FFF2EC;
+        border-radius: 2px;
+        display: block;
+        span{
+            width: 50%;
+            display: block;
+            height: 4px;
+            background:$orange-color;
+            border-radius: 4px;
+        }
+    }
+}

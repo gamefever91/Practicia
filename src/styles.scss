@@ -1,0 +1,70 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    color: #333;
+}
+img{
+    max-width: 100%;
+}
+html, body { height: 100%; }
+.container{
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 15px 10px 0 10px;
+    color: #4E4E4E;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+// .cdk-overlay-container {
+//     position: fixed;
+//     left: 0;
+//     top: 0;
+//     right: 0;
+//     bottom: 0;
+//     background: rgba(0, 0, 0, 0.7);
+// }
+.cdk-overlay-container .cdk-overlay-pane {
+    // max-width: 300px !important;
+    // width: 90% !important;
+    // position: absolute !important;
+    // top: 50%;
+    // left: 50%;
+    // transform: translate(-50%, -50%);
+    background: #fff;
+}
+.docsliderBx .owl-prev {
+    text-indent: -100px;
+    overflow: hidden;
+    background: url(./assets/images/prev-arrow.svg) left top no-repeat !important;
+    width: 20px;
+    height: 41px;
+    position: absolute;
+    left: -11px;
+    top:50%;
+    padding: 0 !important;
+    margin: 0 !important;
+    margin-top: -20px !important;
+}
+.docsliderBx .owl-next {
+    text-indent: -100px;
+    overflow: hidden;
+    background: url(./assets/images/next-arrow.svg) left top no-repeat !important;
+    width: 20px;
+    height: 41px;
+    position: absolute;
+    right: -11px;
+    top:50%;
+    padding: 0 !important;
+    margin: 0 !important;
+    margin-top: -20px !important;
+}
