@@ -18,10 +18,8 @@ export class OperationsService {
       //cors issue fix
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
       }),
     };
     return this.http.post<any>(apiUrl, data, httpOptions);
   }
-
 }

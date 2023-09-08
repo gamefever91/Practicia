@@ -66,7 +66,7 @@ $blue-color: #1C83C6;
         background: $light-pink;
         border: 1px solid $orange-color;
         border-radius: 10px 10px 0px 0px;
-        padding: 10px 10px;
+        padding: 5px 10px;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -94,7 +94,7 @@ $blue-color: #1C83C6;
         padding: 10px;
         border-top:0;
         position: relative;
-        min-height: 530px;
+        height: 480px;
         img{
            position: absolute;
            left: 50%;

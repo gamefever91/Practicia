@@ -6,25 +6,24 @@
     <div class="docuserBx">
       <div class="docuserHd">
         <div class="doc_userLeft">
-          <span><strong>Owner:</strong> {{ document?.meta_owner_name}}</span>
-          <span><strong>ID:</strong> {{ document?.meta_owner_reference}}</span>
+          <span><strong>Owner:</strong> {{ document?.meta_owner_name }}</span>
+          <span><strong>ID:</strong> {{ document?.meta_owner_reference }}</span>
         </div>
         <div class="doc_userIcon">
           <mat-icon class="active" style="cursor: pointer" (click)="download()"
-          >cloud_download</mat-icon
-        >
-        <mat-icon style="cursor: pointer" (click)="print()"
-          >local_printshop</mat-icon
-        >
-        <mat-icon style="cursor: pointer" (click)="openBottomSheet()"
-        >share</mat-icon>        </div>
+            >cloud_download</mat-icon
+          >
+          <mat-icon style="cursor: pointer" (click)="print()"
+            >local_printshop</mat-icon
+          >
+          <mat-icon style="cursor: pointer" (click)="openBottomSheet()"
+            >share</mat-icon
+          >
+        </div>
       </div>
       <div class="cardImgBx">
-        <ul
-          class="docList"
-          *ngFor="let document of document?.common_files_list"
-        >
-          <li>
+        <ul class="docList">
+          <li *ngFor="let document of document?.common_files_list">
             <a
               [routerLink]="['/main-document']"
               [queryParams]="{ file: document?.common_files_name }"
@@ -40,3 +39,4 @@
 <!---->
 <app-footer></app-footer>
 
+<app-loader *ngIf="isLoading"></app-loader>

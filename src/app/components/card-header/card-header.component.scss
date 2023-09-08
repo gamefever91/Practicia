@@ -11,7 +11,7 @@ $blue-color: #1C83C6;
     padding: 15px;
     position: relative;
     min-height: 130px;
-    padding-left: 135px;
+    padding-left: 125px;
     i{
         border: 1px solid #E3E3E3;
         border-radius: 6px;
@@ -33,6 +33,7 @@ $blue-color: #1C83C6;
         color: $black;
         display: block;
         padding-bottom: 10px;
+        text-transform: capitalize;
     }
     span{
         font-size: 15px;
@@ -40,6 +41,10 @@ $blue-color: #1C83C6;
         display: block;
         line-height: 20px;
         padding-bottom: 10px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        height: 30px;
+        overflow: hidden;
         .mat-icon{
             font-size: 20px;
             line-height: 20px;
@@ -58,53 +63,53 @@ $blue-color: #1C83C6;
     }
 }
 
-@media(max-width: 767px){
-    .mainuser{
-        span{
-            font-size: 13px;
-        }
-    }
-}
+// @media(max-width: 767px){
+//     .mainuser{
+//         span{
+//             font-size: 13px;
+//         }
+//     }
+// }
 
-@media(max-width: 480px){
-    .mainuser{
-        padding-left: 115px;
-        i{
-            width: 80px;
-            height: 80px;
-            left: 10px;
-            top: 10px;
-        }
-        strong{
-            font-size: 14px;
-        }
-        span{
-            font-size: 11px;
+// @media(max-width: 480px){
+//     .mainuser{
+//         padding-left: 115px;
+//         i{
+//             width: 80px;
+//             height: 80px;
+//             left: 10px;
+//             top: 10px;
+//         }
+//         strong{
+//             font-size: 14px;
+//         }
+//         span{
+//             font-size: 11px;
 
-            .mat-icon{
-                font-size: 13px;    
+//             .mat-icon{
+//                 font-size: 13px;    
 
-            }
-        }
+//             }
+//         }
         
-    }
-}
+//     }
+// }
 
-@media(max-width: 280px){
-    .mainuser{
-        padding-left: 115px;
-        i{
-            width: 80px;
-            height: 80px;
-            left: 10px;
-            top: 10px;
-        }
-        strong{
-            font-size: 14px;
-        }
-        span{
-            font-size: 8.5px;
-        }
-    }
-}
+// @media(max-width: 280px){
+//     .mainuser{
+//         padding-left: 115px;
+//         i{
+//             width: 80px;
+//             height: 80px;
+//             left: 10px;
+//             top: 10px;
+//         }
+//         strong{
+//             font-size: 14px;
+//         }
+//         span{
+//             font-size: 8.5px;
+//         }
+//     }
+// }
 

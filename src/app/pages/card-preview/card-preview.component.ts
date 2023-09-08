@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { ShareButtonsComponent } from 'src/app/components/share-buttons/share-buttons.component';
+import { OperationsService } from 'src/app/services/operations.service';
 
 @Component({
   selector: 'app-card-preview',
@@ -12,8 +13,31 @@ export class CardPreviewComponent {
   document: any;
   isParam: boolean = false;
   filename: string = '';
+  isLoading: boolean = false;
 
-  constructor(private _bottomSheet: MatBottomSheet) {}
+  constructor(
+    private _bottomSheet: MatBottomSheet,
+    private operSer: OperationsService
+  ) {}
+
+  async ngOnInit() {
+    this.isLoading = true;
+    const obj = {
+      reference:
+        'td5Ws7z82LURem4FZEhH1YyLoNVZaCQuz9orZ1ZYJdHo5HcavOYfnsZEL5h+euBY',
+    };
+
+    this.operSer.getDocuments(obj).subscribe((res) => {
+      if (res) {
+        this.document = res;
+        this.src = this.document.document_content;
+      }
+      this.isLoading = false;
+    });
+
+    // this.document = await this.http.get('./assets/data.json').toPromise();
+    // console.log(this.document, 'document');
+  }
 
   openBottomSheet(): void {
     this._bottomSheet.open(ShareButtonsComponent);

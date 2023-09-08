@@ -30,6 +30,7 @@ import { ShareIconsModule } from 'ngx-sharebuttons/icons';
 import { faFacebookF, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { ShareButtonsComponent } from './components/share-buttons/share-buttons.component';
+import { LoaderComponent } from './components/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { ShareButtonsComponent } from './components/share-buttons/share-buttons.
     CorousalSliderComponent,
     CardHeaderComponent,
     ShareButtonsComponent,
+    LoaderComponent,
   ],
   imports: [
     BrowserModule,

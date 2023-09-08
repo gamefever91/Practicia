@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { OperationsService } from 'src/app/services/operations.service';
 
 @Component({
   selector: 'app-card-header',
@@ -8,28 +9,30 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CardHeaderComponent implements OnInit {
   document: any;
+  isLoading: boolean = false;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private operSer: OperationsService) {}
 
   async ngOnInit() {
-    //   this.http.get('https://vadimdez.github.io/ng2-pdf-viewer/assets/pdf-test.pdf', { responseType: 'blob' })
-    //     .subscribe(res => {
-    //       const file = new Blob([res], { type: 'application/pdf' });
-    //       const fileURL = URL.createObjectURL(file);
-    //       this.src = fileURL;
-    //     });
-    // }
+    this.isLoading = true;
+    const obj = {
+      reference:
+        'td5Ws7z82LURem4FZEhH1YyLoNVZaCQuz9orZ1ZYJdHo5HcavOYfnsZEL5h+euBY',
+    };
 
-    this.document = await this.http.get('./assets/data.json').toPromise();
-    console.log(this.document, 'document');
+    this.operSer.getDocuments(obj).subscribe((res) => {
+      if (res) {
+        this.document = res;
+      }
+      this.isLoading = false;
+    });
+
+    // this.document = await this.http.get('./assets/data.json').toPromise();
+    // console.log(this.document, 'document');
   }
 
   openDialer() {
     const phoneNumber = '1234567890'; // Replace with the phone number you want to dial.
     window.location.href = `tel:${phoneNumber}`;
   }
-
-  
-
-
 }

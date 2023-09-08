@@ -19,6 +19,8 @@ export class MainDocumentComponent implements OnInit {
   document: any;
   isParam: boolean = false;
   filename: string = '';
+  isLoading: boolean = false;
+  pageNumber: number = 0;
 
   constructor(
     private http: HttpClient,
@@ -26,52 +28,49 @@ export class MainDocumentComponent implements OnInit {
     private route: ActivatedRoute,
     private operSer: OperationsService,
     private _bottomSheet: MatBottomSheet
-  ) {
-  }
+  ) {}
 
   async ngOnInit() {
+    this.isLoading = true;
     const obj = {
-      reference: "td5Ws7z82LURem4FZEhH1YyLoNVZaCQuz9orZ1ZYJdHo5HcavOYfnsZEL5h+euBY"
-    }
+      reference:
+        'td5Ws7z82LURem4FZEhH1YyLoNVZaCQuz9orZ1ZYJdHo5HcavOYfnsZEL5h+euBY',
+    };
 
     this.operSer.getDocuments(obj).subscribe((res) => {
-      if (res.status == 200) {
-        console.log(res, 'res');
-        this.document = res.data;
-      }
-    });
+      if (res) {
+        this.document = res;
 
-    this.document = await this.http.get('./assets/data.json').toPromise();
-    console.log(this.document, 'document');
+        //check quary params
+        this.route.queryParams.subscribe((params) => {
+          if (params['file']) {
+            this.isParam = true;
+          } else {
+            this.isParam = false;
+          }
+        });
 
-    //check quary params
-    this.route.queryParams.subscribe((params) => {
-      console.log(params);
-      if (params['file']) {
-        this.isParam = true;
-      } else {
-        this.isParam = false;
-      }
-    });
-
-    console.log(this.isParam);
-    if (this.isParam) {
-      this.document?.common_files_list.filter((item: any) => {
-        console.log(item.common_files_name, 'item');
-        this.filename = item.common_files_name;
-        console.log(this.route.snapshot.queryParams['file'], 'file');
-        if (item.common_files_name == this.route.snapshot.queryParams['file']) {
-          console.log(item, 'item');
-          // this.document = item;
-          this.src = 'data:application/pdf;base64,' + item.common_files_content;
-          console.log(this.src, 'src');
+        if (this.isParam) {
+          this.document?.common_files_list.filter((item: any) => {
+            this.filename = item.common_files_name;
+            if (
+              item.common_files_name == this.route.snapshot.queryParams['file']
+            ) {
+              // this.document = item;
+              this.src =
+                'data:application/pdf;base64,' + item.common_files_content;
+            }
+          });
+        } else {
+          this.src =
+            'data:application/pdf;base64,' + this.document.document_content;
         }
-      });
-    } else {
-      this.src =
-        'data:application/pdf;base64,' + this.document.document_content;
-      console.log(this.src, 'src');
-    }
+      }
+      this.isLoading = false;
+    });
+
+    // this.document = await this.http.get('./assets/data.json').toPromise();
+    // console.log(this.document, 'document');
   }
 
   openBottomSheet(): void {
@@ -90,30 +89,29 @@ export class MainDocumentComponent implements OnInit {
 
   // print() {
 
-    
-    // const iframe = document.createElement('iframe');
-    // iframe.setAttribute(
-    //   'style',
-    //   'position:absolute;right:0; top:0; bottom:0; height:100%; width:500px'
-    // );
-    // document.body.appendChild(iframe);
-    // iframe.src = this.src;
+  // const iframe = document.createElement('iframe');
+  // iframe.setAttribute(
+  //   'style',
+  //   'position:absolute;right:0; top:0; bottom:0; height:100%; width:500px'
+  // );
+  // document.body.appendChild(iframe);
+  // iframe.src = this.src;
 
-    // // Check if iframe.contentWindow is not null before calling print()
-    // if (iframe.contentWindow) {
-    //   iframe.contentWindow.print();
-    // } else {
-    //   console.warn(
-    //     'iframe.contentWindow is null or undefined. Unable to print.'
-    //   );
-    // }
+  // // Check if iframe.contentWindow is not null before calling print()
+  // if (iframe.contentWindow) {
+  //   iframe.contentWindow.print();
+  // } else {
+  //   console.warn(
+  //     'iframe.contentWindow is null or undefined. Unable to print.'
+  //   );
+  // }
   // }
 
   print() {
     if (this.src) {
       // Remove the data URI prefix
       const base64Data = this.src.replace(/^data:application\/pdf;base64,/, '');
-  
+
       // Convert base64 data to a Blob
       const byteCharacters = atob(base64Data);
       const byteNumbers = new Array(byteCharacters.length);
@@ -122,16 +120,16 @@ export class MainDocumentComponent implements OnInit {
       }
       const byteArray = new Uint8Array(byteNumbers);
       const blob = new Blob([byteArray], { type: 'application/pdf' });
-  
+
       // Create a Blob URL for the PDF
       const pdfBlobUrl = URL.createObjectURL(blob);
-  
+
       // Create a temporary anchor element and trigger a click event
       const a = document.createElement('a');
       a.href = pdfBlobUrl;
       a.target = '_blank'; // Open in a new tab or window
       a.click();
-  
+
       // Clean up the Blob URL after triggering the click event
       setTimeout(() => {
         URL.revokeObjectURL(pdfBlobUrl);
@@ -140,11 +138,6 @@ export class MainDocumentComponent implements OnInit {
       alert('No PDF data available to print.');
     }
   }
-  
-  
-  
-  
-  
 
   copyToClipboard() {
     const input = document.createElement('input');
